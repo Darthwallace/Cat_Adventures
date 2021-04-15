@@ -1,0 +1,173 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fly_powerUp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Parallax.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/Parallax.gd" type="Script" id=8]
+[ext_resource path="res://scenes/platform big.tscn" type="PackedScene" id=9]
+[ext_resource path="res://bunnyrunner_files/sprites/Environment/grass2.png" type="Texture" id=10]
+[ext_resource path="res://bunnyrunner_files/sprites/Environment/grass1.png" type="Texture" id=11]
+[ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/spike_man.tscn" type="PackedScene" id=13]
+[ext_resource path="res://bunnyrunner_files/sprites/Environment/cactus.png" type="Texture" id=14]
+[ext_resource path="res://scenes/ball_red.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/sky.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/platform_small.tscn" type="PackedScene" id=17]
+
+[node name="Test_Area" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="platform_small" parent="Platforms" instance=ExtResource( 17 )]
+position = Vector2( 8040.15, 1040.41 )
+
+[node name="platform big" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 3284.75, 875.604 )
+
+[node name="platform big2" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 197.353, 709.656 )
+
+[node name="platform big3" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 1672.27, 910.729 )
+
+[node name="platform big5" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 881.741, 852 )
+
+[node name="platform big6" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 4119.5, 542.914 )
+
+[node name="platform big7" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 4839.72, 860.917 )
+
+[node name="platform big8" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 5525.94, 749.337 )
+
+[node name="platform big10" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 6846.38, 899 )
+
+[node name="platform big11" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 7708.48, 1041.02 )
+
+[node name="platform big12" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 8778.98, 883.439 )
+
+[node name="platform big13" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 9643.01, 997.553 )
+
+[node name="platform big14" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 10191, 997.553 )
+
+[node name="platform big15" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 10753.7, 827.197 )
+
+[node name="platform big9" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 12591.7, 975.286 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="wingman" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 6250.71, 720.229 )
+
+[node name="wingman2" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 8299.32, 970.193 )
+
+[node name="wingman3" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11219.1, 954.706 )
+
+[node name="wingman4" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11606.5, 954.706 )
+
+[node name="wingman5" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 12014.1, 954.706 )
+
+[node name="spike_man" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 3138.97, 749.653 )
+
+[node name="spike_man2" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 10613.7, 699.548 )
+
+[node name="ball_red" parent="enemies" instance=ExtResource( 15 )]
+position = Vector2( 3978.11, 417.823 )
+
+[node name="ball_red2" parent="enemies" instance=ExtResource( 15 )]
+position = Vector2( 9499.76, 870.971 )
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 561.004, 514.288 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 1277.93, 618.036 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 6545.7, 653.297 )
+
+[node name="coin7" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 9224.66, 668.558 )
+
+[node name="coin8" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 10478.6, 795.712 )
+
+[node name="coin9" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 10964.4, 671.002 )
+
+[node name="coin10" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 11826.5, 815.546 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 3021.29, 757.329 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 3677.71, 246.762 )
+
+[node name="coin6" parent="coins" instance=ExtResource( 3 )]
+position = Vector2( 4662.12, 683.776 )
+
+[node name="grass1" type="Sprite" parent="."]
+position = Vector2( 12431.2, 901.696 )
+texture = ExtResource( 11 )
+
+[node name="grass2" type="Sprite" parent="."]
+position = Vector2( 12744.7, 896.117 )
+texture = ExtResource( 10 )
+
+[node name="cactus" type="Sprite" parent="."]
+position = Vector2( 12564.7, 848.227 )
+texture = ExtResource( 14 )
+
+[node name="carrot" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12680.2, 827.508 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 54.2187, 587.278 )
+z_as_relative = false
+
+[node name="coil" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1774.27, 807.629 )
+
+[node name="fly_powerUp" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2419.72, 673.149 )
+
+[node name="Parallax" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
+modulate_L1 = Color( 0.580392, 0.878431, 0.988235, 1 )
+modulate_L2 = Color( 0.941176, 0.964706, 0.964706, 1 )
+modulate_L3 = Color( 0.196078, 0.435294, 0.203922, 1 )
+modulate_L4 = Color( 0.356863, 0.839216, 0.352941, 1 )
+
+[node name="spikes" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4974.76, 789.669 )
+
+[node name="spikes2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 7697.51, 970.538 )
+
+[node name="sky" parent="." instance=ExtResource( 16 )]
+[connection signal="body_entered" from="sky" to="Player" method="_on_sky_body_entered"]

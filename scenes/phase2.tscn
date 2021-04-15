@@ -1,0 +1,379 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/Parallax.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Parallax.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/platform big.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fly_man.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Bubble.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ball_red.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/spike.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/platform_small.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/jetpack.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/spike_man.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/sky.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=16]
+
+[node name="phase2" type="Node2D"]
+
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="platform big" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 194.338, 923.916 )
+texture = 0
+
+[node name="platform big2" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 844.322, 748.234 )
+texture = 0
+
+[node name="platform big3" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 2084.25, 906.211 )
+texture = 0
+
+[node name="platform big4" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 2805.7, 934.373 )
+texture = 0
+
+[node name="platform big5" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 3553.68, 648.265 )
+texture = 0
+
+[node name="spike" parent="platforms/platform big5" instance=ExtResource( 9 )]
+position = Vector2( -221.849, -20.8345 )
+
+[node name="spike2" parent="platforms/platform big5" instance=ExtResource( 9 )]
+position = Vector2( 214.911, -22.2681 )
+rotation = 1.5708
+
+[node name="platform big6" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 5148.17, 859.029 )
+texture = 0
+
+[node name="platform big17" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 10433.6, 976.481 )
+rotation = -0.261799
+texture = 0
+
+[node name="platform big18" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 11044.3, 870.774 )
+rotation = -0.261799
+texture = 0
+
+[node name="platform big19" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 11866.5, 753.321 )
+texture = 0
+
+[node name="platform big20" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 12474.3, 861.965 )
+texture = 0
+
+[node name="platform big21" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 14629.7, 503.734 )
+texture = 0
+
+[node name="carrot" parent="platforms/platform big21" instance=ExtResource( 14 )]
+position = Vector2( 64.6943, -132.215 )
+
+[node name="platform big7" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8058.07, 130.993 )
+rotation = -3.14159
+texture = 0
+
+[node name="spikes" parent="platforms/platform big7" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big7" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big7" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big7" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big8" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8439.36, 130.993 )
+rotation = -3.14159
+texture = 0
+
+[node name="spikes" parent="platforms/platform big8" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big8" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big8" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big8" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big9" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8819.95, 130.993 )
+rotation = -3.14159
+texture = 0
+
+[node name="spikes" parent="platforms/platform big9" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big9" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big9" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big9" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big10" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 9200.55, 130.993 )
+rotation = -3.14159
+texture = 0
+
+[node name="spikes" parent="platforms/platform big10" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big10" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big10" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big10" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big11" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 9583.21, 130.993 )
+rotation = -3.14159
+texture = 0
+
+[node name="spikes" parent="platforms/platform big11" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big11" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big11" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big11" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big16" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8058.07, 982.517 )
+texture = 0
+
+[node name="spikes" parent="platforms/platform big16" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big16" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big16" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big16" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big15" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8439.36, 982.517 )
+texture = 0
+
+[node name="spikes" parent="platforms/platform big15" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big15" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big15" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big15" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big14" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 8819.95, 982.517 )
+texture = 0
+
+[node name="spikes" parent="platforms/platform big14" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big14" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big14" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big14" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big13" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 9200.55, 982.517 )
+texture = 0
+
+[node name="spikes" parent="platforms/platform big13" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big13" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big13" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big13" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform big12" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 9583.21, 982.517 )
+texture = 0
+
+[node name="spikes" parent="platforms/platform big12" instance=ExtResource( 11 )]
+position = Vector2( 131.314, -70.4739 )
+
+[node name="spikes2" parent="platforms/platform big12" instance=ExtResource( 11 )]
+position = Vector2( 36.3408, -70.4735 )
+
+[node name="spikes3" parent="platforms/platform big12" instance=ExtResource( 11 )]
+position = Vector2( -55.1416, -70.4731 )
+
+[node name="spikes4" parent="platforms/platform big12" instance=ExtResource( 11 )]
+position = Vector2( -138.243, -70.4727 )
+
+[node name="platform_small" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 5598.15, 919.845 )
+rotation = -0.261799
+texture = 1
+
+[node name="platform_small2" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 5897.86, 966.596 )
+rotation = -0.261799
+texture = 1
+
+[node name="platform_small4" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 6190.27, 1038.7 )
+texture = 1
+
+[node name="platform_small5" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 13026, 921.244 )
+texture = 1
+
+[node name="platform_small6" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 13375.5, 824.346 )
+texture = 1
+
+[node name="platform_small7" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 13757.2, 718.638 )
+texture = 1
+
+[node name="platform_small3" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 6679.2, 1051.53 )
+texture = 1
+
+[node name="spike" parent="platforms/platform_small3" instance=ExtResource( 9 )]
+position = Vector2( 76.4116, -74.0437 )
+rotation = 0.0
+
+[node name="platform_small8" parent="platforms" instance=ExtResource( 10 )]
+position = Vector2( 14166.8, 622.831 )
+texture = 1
+
+[node name="spike" parent="platforms/platform_small8" instance=ExtResource( 9 )]
+position = Vector2( 67.6021, -74.0437 )
+rotation = 0.0
+
+[node name="Parallax" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+modulate_L1 = Color( 0.494118, 0.156863, 0.541176, 1 )
+modulate_L2 = Color( 0.733333, 0.509804, 0.733333, 1 )
+modulate_L3 = Color( 0.380392, 0.298039, 0.380392, 1 )
+modulate_L4 = Color( 0.635294, 0.345098, 0.309804, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 65.9831, 791.362 )
+
+[node name="sky" parent="." instance=ExtResource( 15 )]
+position = Vector2( -127.749, -33.0056 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="fly_man" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 1081.36, 730.133 )
+
+[node name="fly_man2" parent="enemies" instance=ExtResource( 5 )]
+position = Vector2( 4086.55, 731.329 )
+
+[node name="wingman" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 11484.2, 778.33 )
+
+[node name="wingman2" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 8401.91, 680.994 )
+
+[node name="wingman3" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 8870.56, 331.306 )
+
+[node name="wingman4" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 9195.02, 778.33 )
+
+[node name="wingman5" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 9631.23, 443.062 )
+
+[node name="wingman6" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 7998.15, 396.197 )
+
+[node name="ball_red" parent="enemies" instance=ExtResource( 8 )]
+position = Vector2( 5047.43, 731.883 )
+
+[node name="ball_red2" parent="enemies" instance=ExtResource( 8 )]
+position = Vector2( 10876, 787.673 )
+rotation = -0.261799
+
+[node name="ball_red3" parent="enemies" instance=ExtResource( 8 )]
+position = Vector2( 12320.7, 737.755 )
+
+[node name="spike_man" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 10261, 880.375 )
+rotation = -0.261799
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 1950.22, 756.169 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 3554.46, 539.867 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 5868.89, 849.9 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 8219.37, 395.665 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 8781.76, 752.563 )
+
+[node name="coin6" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 9333.33, 428.11 )
+
+[node name="coin7" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 7700.25, 694.882 )
+
+[node name="coin8" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 10014.7, 521.841 )
+
+[node name="coin10" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 11872.6, 632.612 )
+
+[node name="coin9" parent="coins" instance=ExtResource( 16 )]
+position = Vector2( 14110, 493 )
+
+[node name="power_ups" type="Node2D" parent="."]
+
+[node name="Bubble" parent="power_ups" instance=ExtResource( 6 )]
+position = Vector2( 2792.52, 811.653 )
+
+[node name="jetpack" parent="power_ups" instance=ExtResource( 12 )]
+position = Vector2( 7001.46, 814.312 )
+[connection signal="body_entered" from="sky" to="Player" method="_on_sky_body_entered"]

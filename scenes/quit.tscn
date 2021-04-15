@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/quit.gd" type="Script" id=1]
+[ext_resource path="res://xx.png" type="Texture" id=2]
+[ext_resource path="res://bunnyrunner_files/samples/select (online-audio-converter.com).wav" type="AudioStream" id=3]
+[ext_resource path="res://bunnyrunner_files/fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 4 )
+
+[node name="quit" type="Button"]
+margin_left = 1729.55
+margin_top = 52.8682
+margin_right = 1841.55
+margin_bottom = 158.868
+icon = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -1006.96
+margin_top = 455.868
+margin_right = -522.957
+margin_bottom = 521.868
+custom_fonts/font = SubResource( 1 )
+text = "Leave the game?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="Label"]
+margin_left = -15.1053
+margin_top = 118.324
+margin_right = 94.8947
+margin_bottom = 190.324
+custom_fonts/font = SubResource( 2 )
+text = "Yes"
+
+[node name="No" type="Button" parent="Label"]
+margin_left = 372.595
+margin_top = 118.324
+margin_right = 482.595
+margin_bottom = 190.324
+custom_fonts/font = SubResource( 2 )
+text = "No"
+[connection signal="pressed" from="." to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Label/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="Label/No" to="." method="_on_No_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://bunnyrunner_files/samples/enemyhurt.wav" type="AudioStream" id=1]
+[ext_resource path="res://bunnyrunner_files/sprites/Enemies/wingMan3.png" type="Texture" id=2]
+[ext_resource path="res://bunnyrunner_files/sprites/Enemies/wingMan4.png" type="Texture" id=3]
+[ext_resource path="res://bunnyrunner_files/sprites/Enemies/wingMan1.png" type="Texture" id=4]
+[ext_resource path="res://bunnyrunner_files/sprites/Enemies/wingMan2.png" type="Texture" id=5]
+[ext_resource path="res://bunnyrunner_files/sprites/Enemies/wingMan5.png" type="Texture" id=6]
+[ext_resource path="res://scenes/smoke.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/anim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/wingman.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.2966, 24.2117 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 22.8206, 15.8148 )
+
+[node name="wingman" type="Node2D"]
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="body" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="body"]
+position = Vector2( 0, 7.64078 )
+shape = SubResource( 2 )
+
+[node name="head" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="head"]
+position = Vector2( 0, -33.2108 )
+shape = SubResource( 3 )
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="smoke" parent="." instance=ExtResource( 7 )]
+
+[node name="anim" parent="." instance=ExtResource( 8 )]
+[connection signal="body_entered" from="body" to="." method="_on_body_body_entered"]
+[connection signal="body_entered" from="head" to="." method="_on_head_body_entered"]

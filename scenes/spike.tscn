@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/spike.gd" type="Script" id=1]
+[ext_resource path="res://bunnyrunner_files/sprites/Environment/spike_top.png" type="Texture" id=2]
+
+[node name="spike" type="Area2D"]
+rotation = -1.57079
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0.590942, -3.05632 )
+texture = ExtResource( 2 )
+
+[node name="poly" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -24.7268, 40.1823, -1.53972, -46.3094, 2.87687, -46.4934, 25.6959, 40.3663 )
+[connection signal="body_entered" from="." to="." method="_on_spike_body_entered"]

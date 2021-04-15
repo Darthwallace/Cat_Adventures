@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/menu_principal.gd" type="Script" id=1]
+[ext_resource path="res://scripts/sair.gd" type="Script" id=2]
+[ext_resource path="res://xx.png" type="Texture" id=3]
+[ext_resource path="res://bunnyrunner_files/samples/select (online-audio-converter.com).wav" type="AudioStream" id=4]
+[ext_resource path="res://bunnyrunner_files/sprites/Background/menu principal.jpg" type="Texture" id=5]
+[ext_resource path="res://bunnyrunner_files/fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 130
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_color = Color( 0.980392, 0.964706, 0.964706, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 6 )
+
+[node name="menu_principal" type="Node"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 965.716, 542.56 )
+scale = Vector2( 3.09436, 3.43303 )
+texture = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 741.354
+margin_top = 632.116
+margin_right = 1141.35
+margin_bottom = 782.116
+custom_fonts/font = SubResource( 1 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 576.069
+margin_top = 62.5269
+margin_right = 1309.07
+margin_bottom = 170.527
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.984314, 0.992157, 0.988235, 1 )
+text = "Cat adventures"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sair" type="Button" parent="."]
+margin_left = 1764.79
+margin_top = 37.763
+margin_right = 1876.79
+margin_bottom = 143.763
+icon = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select3" type="AudioStreamPlayer" parent="sair"]
+stream = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="sair"]
+visible = false
+margin_left = -1055.1
+margin_top = 310.654
+margin_right = -587.099
+margin_bottom = 376.654
+custom_fonts/font = SubResource( 3 )
+text = "Leave the game?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="sair/Label"]
+margin_left = 52.8682
+margin_top = 120.842
+margin_right = 182.868
+margin_bottom = 200.842
+custom_fonts/font = SubResource( 4 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="Button" parent="sair/Label"]
+margin_left = 286.999
+margin_top = 120.842
+margin_right = 416.999
+margin_bottom = 200.842
+custom_fonts/font = SubResource( 5 )
+text = "No"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="sair/Label/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="sair/Label/No" to="." method="_on_No_pressed"]

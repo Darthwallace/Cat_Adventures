@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/golden_carrot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/golden_carrots.gd" type="Script" id=2]
+[ext_resource path="res://bunnyrunner_files/fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+outline_color = Color( 0.937255, 0.117647, 0.117647, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 3 )
+
+[node name="golden_carrots" type="Node2D"]
+position = Vector2( 961.176, 725.224 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="golden_carrot" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8.30127, -55.1211 )
+
+[node name="golden_carrot2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -123.528, -11.4322 )
+
+[node name="golden_carrot3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 108.482, -10.5069 )
+
+[node name="3 pontos" type="TextEdit" parent="."]
+visible = false
+modulate = Color( 0.945098, 0.945098, 0.960784, 1 )
+self_modulate = Color( 0.913725, 0.952941, 0.945098, 1 )
+margin_left = -268.504
+margin_top = -235.979
+margin_right = 278.496
+margin_bottom = -179.979
+custom_fonts/font = SubResource( 1 )
+custom_colors/member_variable_color = Color( 0.0627451, 0.00392157, 0.00392157, 1 )
+text = " You are spectacular !!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2 pontos" type="TextEdit" parent="."]
+visible = false
+modulate = Color( 0.945098, 0.945098, 0.960784, 1 )
+self_modulate = Color( 0.913725, 0.952941, 0.945098, 1 )
+margin_left = -133.279
+margin_top = -232.0
+margin_right = 135.721
+margin_bottom = -170.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/member_variable_color = Color( 0.0627451, 0.00392157, 0.00392157, 1 )
+text = " excelent !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1 ponto" type="TextEdit" parent="."]
+visible = false
+modulate = Color( 0.945098, 0.945098, 0.960784, 1 )
+self_modulate = Color( 0.913725, 0.952941, 0.945098, 1 )
+margin_left = -93.913
+margin_top = -230.0
+margin_right = 85.087
+margin_bottom = -174.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/member_variable_color = Color( 0.0627451, 0.00392157, 0.00392157, 1 )
+text = " Good !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -100.45
+margin_top = -255.907
+margin_right = 84.5503
+margin_bottom = -189.907
+custom_fonts/font = SubResource( 2 )
+text = "Good !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = -163.829
+margin_top = -248.732
+margin_right = 152.171
+margin_bottom = -182.732
+custom_fonts/font = SubResource( 3 )
+text = "Excelent !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+margin_left = -333.636
+margin_top = -251.124
+margin_right = 333.364
+margin_bottom = -185.124
+custom_fonts/font = SubResource( 4 )
+text = "You are spectacular !!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="request_completion" from="3 pontos" to="." method="_on_TextEdit_request_completion"]
+[connection signal="request_completion" from="2 pontos" to="." method="_on_TextEdit_request_completion"]
+[connection signal="request_completion" from="1 ponto" to="." method="_on_TextEdit_request_completion"]

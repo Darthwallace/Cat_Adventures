@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://bunnyrunner_files/sprites/Items/gold_2.png" type="Texture" id=1]
+[ext_resource path="res://bunnyrunner_files/sprites/Items/gold_3.png" type="Texture" id=2]
+[ext_resource path="res://bunnyrunner_files/sprites/Items/gold_4.png" type="Texture" id=3]
+[ext_resource path="res://bunnyrunner_files/samples/coin.wav" type="AudioStream" id=4]
+[ext_resource path="res://bunnyrunner_files/sprites/Items/gold_1.png" type="Texture" id=5]
+[ext_resource path="res://bunnyrunner_files/sprites/Particles/portal_yellowParticle.png" type="Texture" id=6]
+[ext_resource path="res://scripts/coin.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 43.0309
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 22.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.23
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="coin" type="Area2D"]
+collision_layer = 0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+frame = 3
+playing = true
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="moeda" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Fx"
+
+[node name="queue_timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="particles" type="Particles2D" parent="."]
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 0.29
+randomness = 0.23
+process_material = SubResource( 6 )
+texture = ExtResource( 6 )
+[connection signal="body_entered" from="." to="." method="_on_coin_body_entered"]
+[connection signal="timeout" from="queue_timer" to="." method="_on_queue_timer_timeout"]

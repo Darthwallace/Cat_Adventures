@@ -1,0 +1,235 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/stage_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CoinCounter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://scenes/powerUp_bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bunnyrunner_files/fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://xx.png" type="Texture" id=6]
+[ext_resource path="res://victory.wav" type="AudioStream" id=7]
+[ext_resource path="res://bunnyrunner_files/sprites/Background/gato preto.jpg" type="Texture" id=8]
+[ext_resource path="res://bunnyrunner_files/samples/select (online-audio-converter.com).wav" type="AudioStream" id=9]
+[ext_resource path="res://scripts/pause.gd" type="Script" id=10]
+[ext_resource path="res://scenes/quit.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/help.gd" type="Script" id=12]
+[ext_resource path="res://bunnyrunner_files/sprites/Background/1391245.png" type="Texture" id=13]
+[ext_resource path="res://bunnyrunner_files/samples/main_menu.wav" type="AudioStream" id=14]
+[ext_resource path="res://scenes/golden_carrots.tscn" type="PackedScene" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 310
+outline_color = Color( 0.980392, 0.956863, 0.956863, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "count"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "3", "2", "1", "Go!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.898039, 0.133333, 0.0745098, 1 ), Color( 0.898039, 0.32549, 0.0745098, 1 ), Color( 0.898039, 0.788235, 0.0745098, 1 ), Color( 0.392157, 0.968627, 0.129412, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 200
+font_data = ExtResource( 5 )
+
+[node name="Game" type="Node"]
+script = ExtResource( 3 )
+
+[node name="background" type="Sprite" parent="."]
+visible = false
+position = Vector2( 954.331, 545.107 )
+scale = Vector2( 1.04227, 0.949232 )
+texture = ExtResource( 8 )
+
+[node name="interface" type="Node2D" parent="."]
+position = Vector2( 2.46606, 82.0485 )
+
+[node name="Stage_buttons" type="GridContainer" parent="interface"]
+margin_left = 808.948
+margin_top = 371.325
+margin_right = 1091.95
+margin_bottom = 433.325
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stage_button" parent="interface/Stage_buttons" instance=ExtResource( 1 )]
+margin_right = 153.0
+margin_bottom = 44.0
+music = "res://bunnyrunner_files/music/happy.ogg"
+stage_name = "stg01"
+
+[node name="stage_button2" parent="interface/Stage_buttons" instance=ExtResource( 1 )]
+margin_left = 157.0
+margin_right = 313.0
+margin_bottom = 44.0
+disabled = true
+text = "Stage 02"
+stage = "res://scenes/phase2.tscn"
+music = "res://bunnyrunner_files/samples/musica de cenário.wav"
+stage_name = "stg02"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Controls" type="Node2D" parent="HUD"]
+visible = false
+
+[node name="powerUp_bar" parent="HUD/Controls" instance=ExtResource( 4 )]
+
+[node name="CoinCounter" parent="HUD/Controls" instance=ExtResource( 2 )]
+
+[node name="countdown" type="Node2D" parent="HUD"]
+visible = false
+position = Vector2( 960, 540 )
+
+[node name="Label" type="Label" parent="HUD/countdown"]
+margin_left = -205.235
+margin_top = -172.05
+margin_right = 289.765
+margin_bottom = 160.95
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.392157, 0.968627, 0.129412, 1 )
+text = "Go!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="HUD/countdown"]
+anims/count = SubResource( 2 )
+
+[node name="stage_exit" type="TextureButton" parent="HUD"]
+visible = false
+margin_left = 1777.82
+margin_top = -2.05057
+margin_right = 1932.82
+margin_bottom = 145.949
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stream_victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="quit" parent="." instance=ExtResource( 11 )]
+
+[node name="pause" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -33.0
+margin_right = 97.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.898039, 0.133333, 0.0745098, 1 )
+text = "paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="help" type="Button" parent="."]
+visible = false
+margin_left = 1711.94
+margin_top = 881.857
+margin_right = 2405.94
+margin_bottom = 1569.86
+rect_scale = Vector2( 0.200002, 0.189053 )
+icon = ExtResource( 13 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="help"]
+visible = false
+margin_left = -4686.4
+margin_top = -1624.25
+margin_right = -2843.4
+margin_bottom = -506.254
+custom_fonts/font = SubResource( 7 )
+text = "    Instructions:
+	
+   Jump ->   Space
+   Pause ->   'p' "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select2" type="AudioStreamPlayer" parent="help"]
+stream = ExtResource( 9 )
+
+[node name="exit" type="Button" parent="help"]
+visible = false
+margin_left = -3029.86
+margin_top = -1612.41
+margin_right = -2856.86
+margin_bottom = -1431.41
+icon = ExtResource( 6 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="trofeu" type="CanvasLayer" parent="."]
+
+[node name="golden_carrots" parent="trofeu" instance=ExtResource( 15 )]
+position = Vector2( 628.485, 300.238 )
+scale = Vector2( 0.26411, 0.177725 )
+[connection signal="pressed" from="HUD/stage_exit" to="." method="_on_stage_exit_pressed"]
+[connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
+[connection signal="pressed" from="help/exit" to="help" method="_on_Button_pressed"]
